@@ -2,27 +2,20 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   first_name: {
-    type: String,
-    required: [true, "First name is required"]
+    type:String,
+    required:true
   },
   last_name: {
-    type: String,
-    required: [true, "Last name is required"]
+    type:String,
+    required:true
   },
   email: {
-    type: String,
-    required: [true, "Email is required"],
-    unique: true,
-    match: [
-      /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
-      "Please provide a valid email"
-    ]
+    type:String,
+    required:true,
   },
   password: {
-    type: String,
-    required: [true, "Password is required"],
-    minlength: [8, "Password must be at least 8 characters long"]
+    type:String,
+    required:true
   }
 });
-
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("user", userSchema);
